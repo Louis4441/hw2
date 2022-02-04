@@ -79,6 +79,7 @@ Role.destroy_all
 # rails generate model Movie
 # rails generate model Person
 # rails generate model Role
+# then I migrate through this command
 
 # Insert data into your database that reflects the sample data shown above
 # Do not use hard-coded foreign key IDs.
