@@ -129,22 +129,6 @@ values = {  title: "The Dark Knight Rises",
 movie3 = Movie.new(values)
 movie3.save
 
-# character_list = [ "Bruce Wayne",
-#                     "Alfred",
-#                     "Ra's Al Ghul",
-#                     "Rachel Dawes",
-#                     "Commissioner Gordon",
-#                     "Joker",
-#                     "Harvey Dent",
-#                     "Bane",
-#                     "John Blake",
-#                     "Selina Kyle" ]
-
-# for character in character_list
-#     new_character = Role.new
-#     new_character.character_name = character
-#     new_character.save
-# end
 
 batman_begins = Movie.where({ title: "Batman Begins" })[0]
 dark_knight = Movie.where({ title: "The Dark Knight" })[0]
@@ -269,8 +253,10 @@ movies = Movie.all
 people = Person.all
 roles = Role.all
 
-puts 
-
+for movie in Movie.all
+    dir = Person.where({ id: movie.director_id })[0]
+    print "#{movie.title} #{movie.year_released} #{movie.rated} #{dir.name}\n"
+end
 
 # Prints a header for the cast output
 puts ""
@@ -280,3 +266,7 @@ puts ""
 
 # Query the cast data and loop through the results to display the cast output for each movie
 # TODO!
+
+for movie in Movie.all
+
+end
