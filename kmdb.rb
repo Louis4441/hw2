@@ -249,9 +249,6 @@ puts ""
 
 # Query the movies data and loop through the results to display the movies output
 # TODO!
-movies = Movie.all
-people = Person.all
-roles = Role.all
 
 for movie in Movie.all
     dir = Person.where({ id: movie.director_id })[0]
