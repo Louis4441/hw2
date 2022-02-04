@@ -76,10 +76,11 @@ Role.destroy_all
 # Generate models and tables, according to the domain model
 # TODO!
 # in terminal, I run these 3 commands
-# rails generate model Movie
-# rails generate model Person
-# rails generate model Role
+#   rails generate model Movie
+#   rails generate model Person
+#   rails generate model Role
 # then I migrate through this command
+#   rails db:migrate
 
 # Insert data into your database that reflects the sample data shown above
 # Do not use hard-coded foreign key IDs.
@@ -111,6 +112,9 @@ puts "Movies"
 puts "======"
 puts ""
 
+for movie in Movie.all
+    puts movie
+end
 # Query the movies data and loop through the results to display the movies output
 # TODO!
 
