@@ -86,35 +86,83 @@ Role.destroy_all
 # Do not use hard-coded foreign key IDs.
 # TODO!
 
+actor_list = [ "Christopher Nolan",
+                "Christian Bale",
+                "Michael Caine",
+                "Liam Neeson",
+                "Katie Holmes",
+                "Gary Oldman",
+                "Heath Ledger",
+                "Aaron Eckhart",
+                "Maggie Gyllenhaal",
+                "Tom Hardy",
+                "Joseph Gordon-Levitt", 
+                "Anne Hathaway" ]
+
+for actor in actor_list
+    new_person = Person.new
+    new_person.name = actor
+    new_person.save
+end
+
+nolan = Person.where({name: "Christopher Nolan"})[0]
+nolan_id = nolan.id
+
 values = {  title: "Batman Begins",
             year_released: "2005",
             rated: "PG-13",
-            director_id: "id missing" }
+            director_id: nolan_id }
 movie1 = Movie.new(values)
 movie1.save
 
 values = {  title: "The Dark Knight",
             year_released: "2008",
             rated: "PG-13",
-            director_id: "id missing" }
+            director_id: nolan_id }
 movie2 = Movie.new(values)
 movie2.save
 
 values = {  title: "The Dark Knight Rises",
             year_released: "2012",
             rated: "PG-13",
-            director_id: "id missing" }
+            director_id: nolan_id }
 movie3 = Movie.new(values)
 movie3.save
+
+character_list = [ "Bruce Wayne",
+                    "Alfred",
+                    "Ra's Al Ghul",
+                    "Rachel Dawes",
+                    "Commissioner Gordon",
+                    "Joker",
+                    "Harvey Dent",
+                    "Bane",
+                    "John Blake",
+                    "Selina Kyle" ]
+
+for character in character_list
+    new_character = Role.new
+    new_character.character_name = character
+    new_character.save
+end
 
 # Prints a header for the movies output
 puts "Movies"
 puts "======"
 puts ""
 
-for movie in Movie.all
-    puts movie
+#for movie in Movie.all
+#    puts movie.title
+#end
+
+#for person in Person.all
+#    puts person.name
+#end
+
+for character in Role.all
+    puts character.character_name
 end
+
 # Query the movies data and loop through the results to display the movies output
 # TODO!
 
