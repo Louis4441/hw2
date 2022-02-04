@@ -69,13 +69,41 @@
 # Delete existing data, so you'll start fresh each time this script is run.
 # Use `Model.destroy_all` code.
 # TODO!
+Movie.destroy_all
+Person.destroy_all
+Role.destroy_all
 
 # Generate models and tables, according to the domain model
 # TODO!
+# in terminal, I run these 3 commands
+# rails generate model Movie
+# rails generate model Person
+# rails generate model Role
 
 # Insert data into your database that reflects the sample data shown above
 # Do not use hard-coded foreign key IDs.
 # TODO!
+
+values = {  title: "Batman Begins",
+            year_released: "2005",
+            rated: "PG-13",
+            director_id: "id missing" }
+movie1 = Movie.new(values)
+movie1.save
+
+values = {  title: "The Dark Knight",
+            year_released: "2008",
+            rated: "PG-13",
+            director_id: "id missing" }
+movie2 = Movie.new(values)
+movie2.save
+
+values = {  title: "The Dark Knight Rises",
+            year_released: "2012",
+            rated: "PG-13",
+            director_id: "id missing" }
+movie3 = Movie.new(values)
+movie3.save
 
 # Prints a header for the movies output
 puts "Movies"
