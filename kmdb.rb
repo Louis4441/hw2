@@ -164,11 +164,6 @@ values = { movie_id: batman_begins.id,
 role = Role.new(values)
 role.save
 
-values = { movie_id: batman_begins.id, 
-            actor_id: l_neeson.id, 
-            character_name: "Ra's Al Ghul" }
-role = Role.new(values)
-role.save
 
 values = { movie_id: batman_begins.id, 
             actor_id: k_holmes.id, 
@@ -252,7 +247,7 @@ puts ""
 
 for movie in Movie.all
     dir = Person.where({ id: movie.director_id })[0]
-    print "#{movie.title} #{movie.year_released} #{movie.rated} #{dir.name}\n"
+    puts "#{movie.title}   #{movie.year_released}  #{movie.rated}  #{dir.name}"
 end
 
 # Prints a header for the cast output
@@ -264,6 +259,8 @@ puts ""
 # Query the cast data and loop through the results to display the cast output for each movie
 # TODO!
 
-for movie in Movie.all
-
+for role in Role.all
+    actor = Person.where({ id: role.actor_id })[0]
+    movie = Movie.where({ id: role.movie_id })[0]
+    puts "#{movie.title}    #{actor.name}   #{role.character_name}"
 end
